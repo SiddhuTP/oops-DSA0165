@@ -1,0 +1,119 @@
+1 . #include <iostream>
+
+class Number {
+private:
+    int value;
+
+public:
+    Number(int val) : value(val) {}
+
+    // Overload the unary minus (-) operator
+    Number operator-() {
+        return Number(-value);
+    }
+
+    void display() {
+        std::cout << "Value: " << value << std::endl;
+    }
+};
+
+int main() {
+    Number num1(10);
+    Number num2 = -num1;  // Overloaded unary minus operator
+
+    std::cout << "Original Number: ";
+    num1.display();
+    std::cout << "Negated Number: ";
+    num2.display();
+
+    return 0;
+}
+
+
+2 . #include <iostream>
+
+class ComplexNumber {
+private:
+    double real;
+    double imaginary;
+
+public:
+    ComplexNumber(double r, double i) : real(r), imaginary(i) {}
+
+    // Overload the binary addition operator (+)
+    ComplexNumber operator+(const ComplexNumber& other) {
+        double newReal = real + other.real;
+        double newImaginary = imaginary + other.imaginary;
+        return ComplexNumber(newReal, newImaginary);
+    }
+
+    void display() {
+        std::cout << real << " + " << imaginary << "i" << std::endl;
+    }
+};
+
+int main() {
+    ComplexNumber num1(3.0, 4.0);
+    ComplexNumber num2(1.5, 2.5);
+
+    ComplexNumber sum = num1 + num2;  // Overloaded binary addition operator
+
+    std::cout << "Number 1: ";
+    num1.display();
+    std::cout << "Number 2: ";
+    num2.display();
+    std::cout << "Sum: ";
+    sum.display();
+
+    return 0;
+}
+
+3 .
+#include <iostream>
+#include <cstring>
+
+int main() {
+    std::cout << std::strlen("Hello, World.\n") << "\n";
+    return 0;
+}
+
+output : 13
+
+4. #include <iostream>
+
+int main() {
+    int a = 20;
+    int &n = a;
+    n = a++;
+    a = n++;
+    std::cout << a << "," << n << std::endl;
+    return 0;
+}
+5.
+#include <iostream>
+
+// Function that adds two integers
+int add(int a, int b) {
+    return a + b;
+}
+
+// Function that adds two double numbers
+double add(double a, double b) {
+    return a + b;
+}
+
+int main() {
+    int num1 = 5, num2 = 10;
+    double dbl1 = 3.5, dbl2 = 2.7;
+
+    // Call the integer version of the add function
+    int result1 = add(num1, num2);
+    std::cout << "Result of adding integers: " << result1 << std::endl;
+
+    // Call the double version of the add function
+    double result2 = add(dbl1, dbl2);
+    std::cout << "Result of adding doubles: " << result2 << std::endl;
+
+    return 0;
+}
+
